@@ -1,27 +1,34 @@
-Whats up
-<br>
-
-<marquee id="GRahh" direction="left" scrollamount="18">
-    <b>
-        <video src="./grandpa.mp4" controls autoplay loop muted></video>
-    </b>
-</marquee>
-
-<br>
-
-<b>
-    <span style="color: #ff0000;">Who up wonkin they willy rn 😂😂😂</span>
-</b>
-
-<script>
-    var element1 = document.getElementById("GRahh")
-
-    function switchDirection(element) {
-        var elementDirection = element.getAttribute('direction')
-        element.setAttribute('direction', elementDirection === 'left' ? 'right' : 'left')                                   
-    }
-
-    setInterval(function(){
-        switchDirection(element1)
-    }, 1)
-</script> 
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Jit</title>
+   </head>
+   <body style="background-color: #753ae2;">
+      Whats up
+      <br>
+      <marquee id="GRahh" direction="left" scrollamount="18">
+         <b>
+            <video src="./grandpa.mp4" controls autoplay loop muted></video>
+         </b>
+      </marquee>
+      <br>
+      <b>
+      <span style="color: #ff8734;">Who up wonkin they willy rn 😂😂😂</span>
+      </b>
+      <script>
+         var element1 = document.getElementById("GRahh")
+         
+         function switchDirection(element) {
+             var elementDirection = element.getAttribute('direction')
+             element.setAttribute('direction', elementDirection === 'left' ? 'right' : 'left')                                   
+         }
+         
+         setInterval(function(){
+             switchDirection(element1)
+         }, 1)
+      </script> 
+   </body>
+</html>
