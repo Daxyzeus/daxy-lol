@@ -1,3 +1,27 @@
 Whats up
+<br>
 
-NEwline :trademark:
+<marquee id="GRahh" direction="left" scrollamount="18">
+    <b>
+        <video src="./grandpa.mp4" controls autoplay loop muted></video>
+    </b>
+</marquee>
+
+<br>
+
+<b>
+    <span style="color: #ff0000;">Who up wonkin they willy rn 😂😂😂</span>
+</b>
+
+<script>
+    var element1 = document.getElementById("GRahh")
+
+    function switchDirection(element) {
+        var elementDirection = element.getAttribute('direction')
+        element.setAttribute('direction', elementDirection === 'left' ? 'right' : 'left')                                   
+    }
+
+    setInterval(function(){
+        switchDirection(element1)
+    }, 1)
+</script> 
