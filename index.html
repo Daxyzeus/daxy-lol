@@ -8,14 +8,15 @@
     body { margin: 0; background-color: rgb(0, 0, 0);}
     canvas { display: block; }
   </style>
-  <script> // sounds (im not sorry)
-  function randomsound() {
-    const sounds = ["psst.mp3","hey.mp3","riff.mp3","ball.mp3","usbin.mp3",'usbout.mp3',"mc.mp3"];
-    const index = Math.floor(Math.random() * sounds.length);
-    const audio = new Audio(sounds[randomIndex]);
-    audio.play();
-  }
-  setInterval(randomsound, 1*60*1000);
+  <script>
+    // sounds (im not sorry)
+    function randomsound() {
+      const sounds = ["psst.mp3","hey.mp3","riff.mp3","ball.mp3","usbin.mp3",'usbout.mp3',"mc.mp3"];
+      const index = Math.floor(Math.random() * sounds.length);
+      const audio = new Audio(sounds[index]);
+      audio.play();
+    }
+    setInterval(randomsound, 1*60*1000);
   </script>
 </head>
 <body>
