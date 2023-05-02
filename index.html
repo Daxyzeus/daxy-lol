@@ -11,12 +11,12 @@
   <script>
     // sounds (im not sorry)
     function randomsound(){
-      const sounds = ["psst.mp3","hey.mp3","riff.mp3","ball.mp3","usbin.mp3",'usbout.mp3',"mc.mp3"];
+      const sounds = ["./sounds/psst.mp3","./sounds/hey.mp3","./sounds/riff.mp3","./sounds/ball.mp3","./sounds/usbin.mp3",'./sounds/usbout.mp3',"./sounds/mc.mp3"];
       const index = Math.floor(Math.random()*sounds.length);
       const audio = new Audio(sounds[index]);
       audio.play();
     }
-    setInterval(randomsound, 3*60*1000);
+    setInterval(randomsound, 1*60*1000);
   </script>
 </head>
 <body>
