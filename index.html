@@ -10,13 +10,13 @@
   </style>
   <script>
     // sounds (im not sorry)
-    function randomsound() {
+    function randomsound(){
       const sounds = ["psst.mp3","hey.mp3","riff.mp3","ball.mp3","usbin.mp3",'usbout.mp3',"mc.mp3"];
-      const index = Math.floor(Math.random() * sounds.length);
+      const index = Math.floor(Math.random()*sounds.length);
       const audio = new Audio(sounds[index]);
       audio.play();
     }
-    setInterval(randomsound, 1*60*1000);
+    setInterval(randomsound, 3*60*1000);
   </script>
 </head>
 <body>
@@ -34,6 +34,7 @@
 
     //text
     const loader = new THREE.FontLoader();
+
     loader.load('https://threejs.org/examples/fonts/helvetiker_regular.typeface.json', function (font) {
       const textGeometry = new THREE.TextGeometry('daxy.lol', {
         font: font,
@@ -46,6 +47,7 @@
         bevelOffset: 0,
         bevelSegments: 20
       });
+
       const randomColor = new THREE.Color(Math.random(), Math.random(), Math.random());
 
       textGeometry.center();
@@ -57,7 +59,7 @@
       const rotationTween = gsap.to(textMesh.rotation, { duration: 3, y: Math.PI * 4 });
       const fadeTween = gsap.to(textMaterial, { duration: 1, opacity: 0, onComplete: function() {
         const textContainer = document.getElementById('text-container');
-        textContainer.innerHTML = 'there is nothing here';
+        textContainer.innerHTML = 'there is nothing here... or is there?';
         renderer.domElement.remove();
         document.body.style.backgroundColor = "#CF9FFF";
       }});
