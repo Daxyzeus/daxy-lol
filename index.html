@@ -8,7 +8,7 @@
   <meta property="og:description" content="greatest webste in th wrold">
   <meta property="og:image" content="http://daxy.lol/icon/world.gif">
   <style>
-    body { margin: 0; background-color: #000000;}
+    body { margin: 0; background-color: #BADA55;}
     canvas { display: block; }
   </style>
   <script>
@@ -26,8 +26,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
   
-  <script>
-    //scene
+  <!--script>
+    //intro
     const scene = new THREE.Scene();
 
     const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
@@ -82,9 +82,14 @@
       requestAnimationFrame(render);
     }
     render();
-  </script>
+  </script-->
   
-  
+  <div id="text">
+    <center>
+      <span style="color:rgb(0, 0, 0); text-align: center;">there is nothing here... or is there?</span>
+    </center>
+  </div>
+
   <audio id="bgSong" src="./media/SONG.mp3" autoplay="" loop=""></audio>
   <button onclick="toggleBgSong()" id="playButton">play music</button><br>
   <input type="range" min="1" max="100" value="100" placeholder="volume (1-100)" id="songVolumeSlider"/>
@@ -147,12 +152,5 @@
         })
     }
   </script>
-  
-  <div id="text">
-    <center>
-      <span style="color:rgb(0, 0, 0); text-align: center;">there is nothing here... or is there?</span>
-    </center>
-  </div>
-
 </body>
 </html>
