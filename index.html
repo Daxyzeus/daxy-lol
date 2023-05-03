@@ -11,7 +11,7 @@
     body { margin: 0; background-color: #BADA55;}
     canvas { display: block; }
   </style>
-  <script>
+  <!--script>
     // sounds (im not sorry)
     function randomsound(){
       const sounds = ["./sounds/psst.mp3","./sounds/hey.mp3","./sounds/riff.mp3","./sounds/ball.mp3","./sounds/usbin.mp3",'./sounds/usbout.mp3',"./sounds/mc.mp3"];
@@ -20,14 +20,14 @@
       audio.play();
     }
     setInterval(randomsound, 1*60*1000);
-  </script>
+  </script-->
 </head>
 <body>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <!--script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
   
-  <!--script>
-    //intro
+  <script>
+    //intro (three.js SUCKS so this will be disabled)
     const scene = new THREE.Scene();
 
     const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
@@ -83,12 +83,6 @@
     }
     render();
   </script-->
-  
-  <div id="text">
-    <center>
-      <span style="color:rgb(0, 0, 0); text-align: center;">there is nothing here... or is there?</span>
-    </center>
-  </div>
 
   <audio id="bgSong" src="./media/SONG.mp3" autoplay="" loop=""></audio>
   <button onclick="toggleBgSong()" id="playButton">play music</button><br>
@@ -152,5 +146,11 @@
         })
     }
   </script>
+  
+  <div id="text">
+    <center>
+      <span style="color:rgb(0, 0, 0); text-align: center;">there is nothing here... or is there?</span>
+    </center>
+  </div>
 </body>
 </html>
