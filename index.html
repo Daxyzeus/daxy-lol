@@ -3,14 +3,11 @@
 <head>
   <meta charset="utf-8">
   <title>daxy.lol</title>
-  <link rel="icon" href="./something.png">
-  <meta property="og:title" content="daxy.lol ">
+  <link rel="icon" href="./media/icons/something.png">
+  <link rel="stylesheet" href="./style.css">
+  <meta property="og:title" content="daxy.lol">
   <meta property="og:description" content="greatest webste in th wrold">
-  <meta property="og:image" content="http://daxy.lol/icon/world.gif">
-  <style>
-    body { margin: 0; background-color: #BADA55;}
-    canvas { display: block; }
-  </style>
+  <meta property="og:image" content="http://daxy.lol/media/icons/world.gif">
   <!--script>
     // sounds (im not sorry)
     function randomsound(){
@@ -22,7 +19,7 @@
     setInterval(randomsound, 1*60*1000);
   </script-->
 </head>
-<body>
+<body bgcolor="#BADA55">
   <!--script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
   
@@ -86,7 +83,7 @@
 
   <audio id="bgSong" src="./media/SONG.mp3" autoplay="" loop=""></audio>
   <button onclick="toggleBgSong()" id="playButton">play music</button><br>
-  <input type="range" min="1" max="100" value="100" placeholder="volume (1-100)" id="songVolumeSlider"/>
+  <input type="range" min="1" max="100" value="100" placeholder="volume (1-100)" id="songVolumeSlider" style="accent-color: #008080;"/>
 
   <script>
     //song system
@@ -146,10 +143,30 @@
         })
     }
   </script>
-  
-  <div id="text">
+
+  <div id="temp">
     <center>
-      <span style="color:rgb(0, 0, 0); text-align: center;">there is nothing here... or is there?</span>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <span class="flex"; style="font-size: 65px; color:#008080">there is nothing here... or is there?</span>
     </center>
   </div>
 </body>
