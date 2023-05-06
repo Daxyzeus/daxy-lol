@@ -172,9 +172,24 @@
   </div>
 
   <div id="jumpscare-div" style="pointer-events: none; display: none; position: fixed; top: 0; left: 0; width: 100%; height: 105%; z-index: 9999;">
-    <img id="gif" style="object-fit: cover; width: 100%; height: 100%; pointer-events: none;" src="./media/jumpscare3.gif" loop="false"/>
+    <img id="gif" style="object-fit: cover; width: 100%; height: 96%; pointer-events: none;" src="./media/jumpscares/jumpscare3.gif" loop="false"/>
     <audio id="sound" src="./media/sounds/scream3.mp3"></audio>
   </div>
+
+  <script id="change-jumpscare-script">
+    function changejumpscare(file, reset) {
+    var jumpscarefile = `./media/jumpscares/${file}`;
+
+    if (reset === true) {
+      document.getElementById("gif").src = jumpscarefile;
+      document.getElementById("gottem").style.display = 'none';
+      document.getElementById("jumpscare text").style.pointerEvents = 'auto';
+      document.getElementById("main-text").textContent = 'there is nothing here... i think?';
+    } else {
+      throw 'invalid second argument noob'
+    }
+  }
+  </script>
 
   <center>
     <div id="gottem" style="pointer-events: none; display: none; position: fixed; top: -200; left: 0; width: 100%; height: -100%; z-index: 9998">
@@ -207,6 +222,7 @@
       setTimeout(() => { // fuck settimeout 
         const container2 = document.getElementById("gottem");
         container2.style.display = 'block';
+
         document.getElementById("main-text").textContent = null
         document.getElementById("jumpscare text").style.pointerEvents = 'none'
       }, 250)
