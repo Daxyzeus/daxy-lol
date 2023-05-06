@@ -176,6 +176,12 @@
     <audio id="sound" src="./media/sounds/scream3.mp3"></audio>
   </div>
 
+  <center>
+    <div id="gottem" style="pointer-events: none; display: none; position: fixed; top: -200; left: 0; width: 100%; height: -100%; z-index: 9998">
+      <img id="gif" style="object-fit: cover; width: 10%; height: 50%; pointer-events: none;" src="./media/deeznuts.gif" loop="true"/>
+    </div>
+  </center>
+
   <script>
     // jumpscare script (probably temporary)
     function show() {
@@ -199,12 +205,11 @@
 
     function change() {
       setTimeout(() => { // fuck settimeout 
-        document.getElementById("main-text").textContent = 'lol'
+        const container2 = document.getElementById("gottem");
+        container2.style.display = 'block';
+        document.getElementById("main-text").textContent = null
         document.getElementById("jumpscare text").style.pointerEvents = 'none'
       }, 250)
-
-      document.getElementById("jumpscare text").style.pointerEvents = 'auto'
-      document.getElementById("main-text").textContent = 'there is nothing here... i think?'
     }
   </script>
 </body>
