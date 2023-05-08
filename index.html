@@ -176,7 +176,16 @@
     <audio id="sound" src="./media/sounds/scream3.mp3"></audio>
   </div>
 
+  <script id="reset">
+    function reset() {
+      document.getElementById("gottem").style.display = 'none';
+      document.getElementById("jumpscare text").style.pointerEvents = 'auto';
+      document.getElementById("main-text").textContent = 'there is nothing here... i think?';
+    }
+  </script>
+
   <script id="change-jumpscare-script">
+    //idk
     function changejumpscare(file, reset) {
     var jumpscarefile = `./media/jumpscares/${file}`;
 
@@ -202,9 +211,13 @@
     function show() {
       const container = document.getElementById("jumpscare-div");
       container.style.display = 'block';
+      //document.body.style.backgroundColor = '#000000'
+      //document.getElementById('main-text').style.color = '#000000'
 
       setTimeout(() => {
         container.style.display = 'none';
+        //document.body.style.backgroundColor = '#BADA55'
+        //document.getElementById('main-text').style.color = '#008080'
       }, 1720);
     }
 
