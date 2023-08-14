@@ -3,11 +3,28 @@
 <head>
   <meta charset="utf-8">
   <title>daxy.lol</title>
-  <link rel="icon" href="./media/icons/something.png">
   <link rel="stylesheet" href="./style.css">
   <meta property="og:title" content="daxy.lol">
   <meta property="og:description" content="greatest webste in th wrold">
   <meta property="og:image" content="http://daxy.lol/media/icons/world.gif">
+    <link rel="icon" href="original-icon.png" type="image/png" id="favicon">
+    <script>
+      const favicon = document.getElementById('favicon');
+      const canny = 'media/icons/canny.png'
+      const uncanny = 'media/icons/uncanny.png'
+      let isFirst = true;
+  
+      function changeFavicon() {
+        if (isFirst) {
+          favicon.href = uncanny;
+        } else {
+          favicon.href = canny;
+        }
+        isFirst = !isFirst;
+      }
+  
+      setInterval(changeFavicon, 2500); // Change favicon every 3 seconds
+    </script>
   <!--script>
     // sounds (im not sorry)
     function randomsound(){
@@ -167,7 +184,7 @@
     <br>
     <br>
     <center>
-      <span id="main-text" style="font-size: 65px; color:#008080"; onclick="show(), scream(), change()">there is nothing here... i think?</span>
+      <marquee id="main-text" style="font-size: 65px; color:#008080;"; onclick="show(), scream(), change()">there is nothing here... or perhaps there might be                         what are you looking at me for? i'm not interesting man i'm litteraly just a piece of text designed to throw you off... Or am i? To be honest i'm not quite sure but you shouldn't click me because i don't do anything.                                                why are you still on this site? there's still nothing to see here and there's clearly no reason for you to be here... right?</marquee>
     </center>
   </div>
 

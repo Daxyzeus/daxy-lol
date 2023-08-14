@@ -1,55 +1,408 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <title>Login</title>
-    <link rel="icon" href="./media/icons/mohammad.png">
-    <meta property="og:title" content="daxy.lol">
-    <meta property="og:description" content="mohammad">
-    <meta property="og:image" content="http://daxy.lol/media/icons/mohammad-icon.gif">
-    <audio id="sound" src="./media/gta4.mp3" loop="true"></audio>
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <link rel="shortcut icon" type="image/x-icon" href="./img/favicon.ico">
+    <link rel="stylesheet" href="./login-page-css/main.css">
+    <link rel="stylesheet" href="./login-page-css/login.css">
 </head>
-<body bgcolor="#BADA55">
-    <center>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <button id="songbutton" onclick="playsong()" style="display: block; size: 80px; background-color: #bada55; color: #008080;">click me</button>
-    </center>
+
+<body>
+    <div id="pc-div">
+        <div id="pc-top">
+            <div id="pc-top-container">
+                <a id="pc-top-product" href="http://www.tp-link.com" target="_blank">
+                    <span class="icon-logo"></span>
+                </a>
+            </div>
+        </div>
+        <div id="pc-scroll">
+            <div id="pc-arrowBg"></div>
+            <div id="pc-main">
+                <div class="pc-login-content" id="pc-login">
+                    <div id="pc-login-forget" class="nd">
+                        <h4 id="pc-login-forget-title"></h4>
+                        <p id="pc-login-forget-text"></p>
+                        <div class="button-container">
+                            <form class="pure-form">
+                                <button type="submit" class="green T_save pure-button tp-btn-custom" id="pc-login-forget-back">
+                                    <span class="">Save</span>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                    <div id="pc-login-main">
+                        <div class="pc-login-field nd" id="pc-login-user-div">
+                            <div class="pc-inputarea">
+                                <label class="pc-login-username-label">
+                                    <span class="icon"></span>
+                                    <span class="text"></span>
+                                </label>
+                                <input type="text" id="pc-login-user" autocomplete="off">
+                            </div>
+                        </div>
+                        <div class="pc-login-field">
+                            <div class="pc-inputarea">
+                                <label class="pc-login-password-label">
+                                    <span class="icon"></span>
+                                </label>
+                                <input type="password" id="pc-login-password" placeholder="Password" autocomplete="off">
+                                <span class="pc-forgetPwd">
+                                    <a href="./media/kevin.png" id="pc-login-forgetPwd">Forget password</a>
+                                </span>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="button-wrapper">
+                                <button id="pc-login-btn" onclick="playvid()" class="button-button" type="button">
+                                    <span class="text button-text">Log in</span>
+                                </button>
+                                <div class="button-error-tips widget-error-tips">
+                                    <div class="shadow-top-left"></div>
+                                    <div class="shadow-top"></div>
+                                    <div class="shadow-top-right"></div>
+                                    <div class="shadow-left">
+                                        <div class="shadow-right">
+                                            <span class="widget-error-tips-delta"></span>
+                                            <div class="widget-error-tips-wrap">
+                                                <div class="content error-tips-content">
+                                                    <span class="errorContent"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="shadow-bot-left"></div>
+                                    <div class="shadow-bot"></div>
+                                    <div class="shadow-bot-right"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pc-login-content nd" id="pc-setPwd">
+                    <div class="pc-login-field">
+                        <div class="pc-inputarea">
+                            <label class="pc-login-password-label">
+                                <span class="icon"></span>
+                            </label>
+                            <input type="password" id="pc-setPwd-new" autocomplete="off">
+                        </div>
+                    </div>
+                    <div id="pwdCheck" class="secLevel">
+                        <span id="pwdCheck-low" class="level1 ori">Low</span>
+                        <span id="pwdCheck-middle" class="level2 ori">Middle</span>
+                        <span id="pwdCheck-high" class="level3 ori">High</span>
+                    </div>
+                    <div class="pc-login-field">
+                        <div class="pc-inputarea">
+                            <label class="pc-login-password-label">
+                                <span class="icon"></span>
+                            </label>
+                            <input type="password" id="pc-setPwd-confirm" autocomplete="off">
+                        </div>
+                    </div>
+                    <div>
+                        <div class="button-wrapper">
+                            <button id="pc-setPwd-btn" class="button-button" type="button">
+                                <span class="text button-text">Log in</span>
+                            </button>
+                            <div class="button-error-tips widget-error-tips">
+                                <div class="shadow-top-left"></div>
+                                <div class="shadow-top"></div>
+                                <div class="shadow-top-right"></div>
+                                <div class="shadow-left">
+                                    <div class="shadow-right">
+                                        <span class="widget-error-tips-delta"></span>
+                                        <div class="widget-error-tips-wrap">
+                                            <div class="content error-tips-content">
+                                                <span class="errorContent"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="shadow-bot-left"></div>
+                                <div class="shadow-bot"></div>
+                                <div class="shadow-bot-right"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="pc-cloud" class="nd">
+                    <div class="pc-login-content" id="pc-cloud-form">
+                        <div class="login-field">
+                            <div class="pc-inputarea">
+                                <label class="pc-login-username-label">
+                                    <span class="icon"></span>
+                                </label>
+                                <input type="text" id="pc-cloud-user" autocomplete="off">
+                            </div>
+                        </div>
+                        <div class="pc-login-field">
+                            <div class="pc-inputarea">
+                                <label class="pc-login-password-label">
+                                    <span class="icon"></span>
+                                </label>
+                                <input type="password" id="pc-cloud-password" autocomplete="off">
+                                <span class="pc-forgetPwd">
+                                    <a href="#" id="pc-cloud-forgetPwd">Forget password</a>
+                                </span>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="button-wrapper">
+                                <button id="pc-cloud-btn" class="button-button" type="button">
+                                    <span class="text button-text">Log in</span>
+                                </button>
+                                <div class="button-error-tips widget-error-tips">
+                                    <div class="shadow-top-left"></div>
+                                    <div class="shadow-top"></div>
+                                    <div class="shadow-top-right"></div>
+                                    <div class="shadow-left">
+                                        <div class="shadow-right">
+                                            <span class="widget-error-tips-delta"></span>
+                                            <div class="widget-error-tips-wrap">
+                                                <div class="content error-tips-content">
+                                                    <span class="errorContent"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="shadow-bot-left"></div>
+                                    <div class="shadow-bot"></div>
+                                    <div class="shadow-bot-right"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <iframe frameborder="0" id="cloud-login" name="cloud-login" scrolling="no" class="nd"></iframe>
+                </div>
+            </div>
+            <div id="pc-bottomContainer">
+                <div id="pc-bottom">
+                    <span id="pc-bot-productName">daxy.lol</span>
+                    <span id="pc-bot-app" class="nd">App</span>
+                    <span id="pc-bot-modelDesc">Router Admin Login</span>
+                </div>
+                <div class="pc-bottom-background"></div>
+                <div class="qr-code-container login nd" id="qr-code-container">
+                    <div class="qr-code-container-wrapper nd">
+                        <div class="qr-code">
+                            <span id="qr-close-icon" class="close-icon"></span>
+                            <div class="characters-illustrate">
+                                <span id="characters-illustrate-title" class="characters-illustrate-title">Acesse o código QR para baixar o App Tether da TP-LINK.</span>
+                                <span id="characters-illustrate-note" class="characters-illustrate-note">Gerencie convenientemente sua rede de qualquer dispositivo móvel. Controle completo na palma da sua mão.</span>
+                            </div>
+                            <span class="qr-code-picture"></span>
+                            <div class="app-download-place">
+                                <a href="https://itunes.apple.com/us/app/tp-link-tether/id599496594?ls=1&amp;mt=8" target="_blank"><span class="apple-store"></span></a>
+                                <a href="https://play.google.com/store/apps/details?id=com.tplink.tether" target="_blank"><span class="google-play"></span></a>
+                            </div>
+                        </div>
+                        <div class="qr-code-container-delta"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="pc-scroll">
+        <div id="pc-arrowBg"></div>
+        <div id="pc-main">
+            <div class="pc-login-content" id="pc-login">
+                <div id="pc-login-forget" class="nd">
+                    <h4 id="pc-login-forget-title"></h4>
+                    <p id="pc-login-forget-text"></p>
+                    <div class="button-container">
+                        <form class="pure-form">
+                            <button type="submit" class="green T_save pure-button tp-btn-custom" id="pc-login-forget-back">
+                                <span class="">Save</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                <div id="pc-login-main">
+                    <div class="pc-login-field nd" id="pc-login-user-div">
+                        <div class="pc-inputarea">
+                            <label class="pc-login-username-label">
+                                <span class="icon"></span>
+                                <span class="text"></span>
+                            </label>
+                            <input type="text" id="pc-login-user" autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="pc-login-field">
+                        <div class="pc-inputarea">
+                            <label class="pc-login-password-label">
+                                <span class="icon"></span>
+                            </label>
+                            <input type="password" id="pc-login-password" placeholder="Password" autocomplete="off">
+                            <span class="pc-forgetPwd">
+                                <a href="#" id="pc-login-forgetPwd">For get password</a>
+                            </span>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="button-wrapper">
+                            <button id="pc-login-btn" class="button-button" type="button">
+                                <span class="text button-text">Log in</span>
+                            </button>
+                            <div class="button-error-tips widget-error-tips">
+                                <div class="shadow-top-left"></div>
+                                <div class="shadow-top"></div>
+                                <div class="shadow-top-right"></div>
+                                <div class="shadow-left">
+                                    <div class="shadow-right">
+                                        <span class="widget-error-tips-delta"></span>
+                                        <div class="widget-error-tips-wrap">
+                                            <div class="content error-tips-content">
+                                                <span class="errorContent"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="shadow-bot-left"></div>
+                                <div class="shadow-bot"></div>
+                                <div class="shadow-bot-right"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pc-login-content nd" id="pc-setPwd">
+                <div class="pc-login-field">
+                    <div class="pc-inputarea">
+                        <label class="pc-login-password-label">
+                            <span class="icon"></span>
+                        </label>
+                        <input type="password" id="pc-setPwd-new" autocomplete="off">
+                    </div>
+                </div>
+                <div id="pwdCheck" class="secLevel">
+                    <span id="pwdCheck-low" class="level1 ori">Low</span>
+                    <span id="pwdCheck-middle" class="level2 ori">Middle</span>
+                    <span id="pwdCheck-high" class="level3 ori">High</span>
+                </div>
+                <div class="pc-login-field">
+                    <div class="pc-inputarea">
+                        <label class="pc-login-password-label">
+                            <span class="icon"></span>
+                        </label>
+                        <input type="password" id="pc-setPwd-confirm" autocomplete="off">
+                    </div>
+                </div>
+                <div>
+                    <div class="button-wrapper">
+                        <button id="pc-setPwd-btn" class="button-button" type="button">
+                            <span class="text button-text">Log in</span>
+                        </button>
+                        <div class="button-error-tips widget-error-tips">
+                            <div class="shadow-top-left"></div>
+                            <div class="shadow-top"></div>
+                            <div class="shadow-top-right"></div>
+                            <div class="shadow-left">
+                                <div class="shadow-right">
+                                    <span class="widget-error-tips-delta"></span>
+                                    <div class="widget-error-tips-wrap">
+                                        <div class="content error-tips-content">
+                                            <span class="errorContent"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="shadow-bot-left"></div>
+                            <div class="shadow-bot"></div>
+                            <div class="shadow-bot-right"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="pc-cloud" class="nd">
+                <div class="pc-login-content" id="pc-cloud-form">
+                    <div class="login-field">
+                        <div class="pc-inputarea">
+                            <label class="pc-login-username-label">
+                                <span class="icon"></span>
+                            </label>
+                            <input type="text" id="pc-cloud-user" autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="pc-login-field">
+                        <div class="pc-inputarea">
+                            <label class="pc-login-password-label">
+                                <span class="icon"></span>
+                            </label>
+                            <input type="password" id="pc-cloud-password" autocomplete="off">
+                            <span class="pc-forgetPwd">
+                                <a href="#" id="pc-cloud-forgetPwd">For get password</a>
+                            </span>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="button-wrapper">
+                            <button id="pc-cloud-btn" class="button-button" type="button">
+                                <span class="text button-text">Log in</span>
+                            </button>
+                            <div class="button-error-tips widget-error-tips">
+                                <div class="shadow-top-left"></div>
+                                <div class="shadow-top"></div>
+                                <div class="shadow-top-right"></div>
+                                <div class="shadow-left">
+                                    <div class="shadow-right">
+                                        <span class="widget-error-tips-delta"></span>
+                                        <div class="widget-error-tips-wrap">
+                                            <div class="content error-tips-content">
+                                                <span class="errorContent"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="shadow-bot-left"></div>
+                                <div class="shadow-bot"></div>
+                                <div class="shadow-bot-right"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <iframe frameborder="0" id="cloud-login" name="cloud-login" scrolling="no" class="nd"></iframe>
+            </div>
+        </div>
+        <div id="pc-bottomContainer">
+            <div id="pc-bottom">
+                <span id="pc-bot-productName">daxy.lol</span>
+                <span id="pc-bot-app" class="nd">App</span>
+                <span id="pc-bot-modelDesc">Router Admin Login</span>
+            </div>
+            <div class="pc-bottom-background"></div>
+            <div class="qr-code-container login nd" id="qr-code-container">
+                <div class="qr-code-container-wrapper nd">
+                    <div class="qr-code">
+                        <span id="qr-close-icon" class="close-icon"></span>
+                        <div class="characters-illustrate">
+                            <span id="characters-illustrate-title" class="characters-illustrate-title">Acesse o código QR para baixar o App Tether da TP-LINK.</span>
+                            <span id="characters-illustrate-note" class="characters-illustrate-note">Gerencie convenientemente sua rede de qualquer dispositivo móvel. Controle completo na palma da sua mão.</span>
+                        </div>
+                        <span class="qr-code-picture"></span>
+                        <div class="app-download-place">
+                            <a href="https://itunes.apple.com/us/app/tp-link-tether/id599496594?ls=1&amp;mt=8" target="_blank"><span class="apple-store"></span></a>
+                            <a href="https://play.google.com/store/apps/details?id=com.tplink.tether" target="_blank"><span class="google-play"></span></a>
+                        </div>
+                    </div>
+                    <div class="qr-code-container-delta"></div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script>
-    function playsong() {
-        const sound = document.getElementById('sound');
-        sound.play();
+        function playvid() {
+            document.getElementById("video-div").style.display = 'block'
+            document.getElementById('video').play()
 
-        document.getElementById("mohammad-div").style.display = 'block'
-        document.getElementById("songbutton").style.display = 'none'
-    }
+            document.getElementById('video').addEventListener('ended', () => location.href = 'https://daxy.lol/')
+        }
     </script>
-    
-    <div id="mohammad-div" style="pointer-events: none; display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 9999;">
-        <img id="gif" style="object-fit:fill; width: 100%; height: 100%; pointer-events: none;" src="./media/mohammad.gif" loop="false"/>
+
+    <div id="video-div" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 9999; pointer-events: none;">
+        <video playsinline id="video" style="object-fit:fill; width: 100%; height: 100%;">
+            <source src="./media/gman.webm" type="video/webm">
+        </video>
     </div>
 </body>
-</html>
