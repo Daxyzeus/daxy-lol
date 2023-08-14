@@ -8,10 +8,11 @@
   <meta property="og:description" content="greatest webste in th wrold">
   <meta property="og:image" content="http://daxy.lol/media/icons/world.gif">
     <link rel="icon" href="original-icon.png" type="image/png" id="favicon">
-    <script>
+    <script> // favicon changer
       const favicon = document.getElementById('favicon');
-      const canny = 'media/icons/canny.png'
-      const uncanny = 'media/icons/uncanny.png'
+      const canny = 'media/icons/canny.png';
+      const uncanny = 'media/icons/uncanny.png';
+
       let isFirst = true;
   
       function changeFavicon() {
@@ -22,8 +23,8 @@
         }
         isFirst = !isFirst;
       }
-  
-      setInterval(changeFavicon, 2500); // Change favicon every 3 seconds
+
+      setInterval(changeFavicon, 2500);;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; // why does js let you get away with this
     </script>
   <!--script>
     // sounds (im not sorry)
@@ -183,9 +184,7 @@
     <br>
     <br>
     <br>
-    <center>
-      <marquee id="main-text" style="font-size: 65px; color:#008080;"; onclick="show(), scream(), change()">there is nothing here... or perhaps there might be                         what are you looking at me for? i'm not interesting man i'm litteraly just a piece of text designed to throw you off... Or am i? To be honest i'm not quite sure but you shouldn't click me because i don't do anything.                                                why are you still on this site? there's still nothing to see here and there's clearly no reason for you to be here... right?</marquee>
-    </center>
+      <marquee scrollamount="15" id="main-text" style="font-size: 25px; color:#008080; font-family: 'Trebuchet MS', sans-serif; position: fixed; bottom: 0;"; onclick="show(), scream(), change()">there is nothing here... or perhaps there might be                         what are you looking at me for? i'm not interesting man i'm litteraly just a piece of text designed to throw you off... Or am i? To be honest i'm not quite sure but you shouldn't click me because i don't do anything.                                                why are you still on this site? there's still nothing to see here and there's clearly no reason for you to be here... right?</marquee>
   </div>
 
   <div id="jumpscare-div" style="pointer-events: none; display: none; position: fixed; top: 0; left: 0; width: 100%; height: 105%; z-index: 9999;">
@@ -193,6 +192,23 @@
     <audio id="sound" src="./media/sounds/scream3.mp3"></audio>
   </div>
 
+  <script id="random-sentence">
+    //todo: add more random shit to this thing and finish log-in button/page/thingymajig
+    const sentences = [
+      "there is nothing here... or perhaps there might be...                         what are you looking at me for? i'm not interesting man i'm litteraly just a piece of text designed to throw you off... Or am i? To be honest i'm not quite sure but you shouldn't click me because i don't do anything.                                                why are you still on this site? there's still nothing to see here and there's clearly no reason for you to be here... right?",
+      "sasasas",
+      "asiojaiosj"
+    ];
+    
+    function randomSentence() {
+      const randomIndex = Math.floor(Math.random() * sentences.length);
+      const randomSentence = sentences[randomIndex];
+      const textElement = document.getElementById('random-sentence');
+      document.getElementById('main-text').textContent = randomSentence;
+    }
+
+    randomSentence();
+  </script>
   <script id="reset">
     function reset() {
       document.getElementById("gottem").style.display = 'none';
@@ -258,5 +274,7 @@
       }, 250)
     }
   </script>
+  
+  <button onclick="window.location.href='https://daxy.lol/login';" id="loginButton" style="position: fixed; top: 20px; right: 20px;">admin login</button>
 </body>
 </html>
