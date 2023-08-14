@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Login</title>
+    <link rel="icon" href="./media/icons/mohammad.png">
+    <meta property="og:title" content="daxy.lol">
+    <meta property="og:description" content="mohammad">
+    <meta property="og:image" content="http://daxy.lol/media/icons/mohammad-icon.gif">
+    <audio id="sound" src="./media/gta4.mp3" loop="true"></audio>
+</head>
+<body bgcolor="#BADA55">
+    <center>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <button id="songbutton" onclick="playsong()" style="display: block; size: 80px; background-color: #bada55; color: #008080;">click me</button>
+    </center>
+
+    <script>
+    function playsong() {
+        const sound = document.getElementById('sound');
+        sound.play();
+
+        document.getElementById("mohammad-div").style.display = 'block'
+        document.getElementById("songbutton").style.display = 'none'
+    }
+    </script>
+    
+    <div id="mohammad-div" style="pointer-events: none; display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 9999;">
+        <img id="gif" style="object-fit:fill; width: 100%; height: 100%; pointer-events: none;" src="./media/mohammad.gif" loop="false"/>
+    </div>
+</body>
+</html>
