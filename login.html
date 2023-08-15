@@ -404,10 +404,12 @@
             document.getElementById('video').addEventListener('ended', () => location.href = 'https://daxy.lol/');
         }
 
-        function randomgman() {
-            const gmen = ["./media/gman_time.webm", "./media/gman.webm"]; //haha get it? its the gmen var because theres multiple gmen god im so funny
+        function randomgman() { //used 3 free gman green screen sequences, downloaded them and ungreenscreened them in davinci resolve 18 and exported them as an mov with the codec "gopro cineform" to keep alpha channels and then used ffmpeg to convert the mov to a vp9 webm
+            const gmen = ["./media/gman-sequences/gman_heart2heart.webm", "./media/gman-sequences/gman_time.webm", "./media/gman-sequences/gman.webm"];
             var index = Math.floor(Math.random()*gmen.length);
             var sequence = gmen[index];
+
+            console.log(sequence.split('/')[3])
 
             return sequence;
         }
