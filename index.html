@@ -7,7 +7,7 @@
   <meta property="og:title" content="daxy.lol">
   <meta property="og:description" content="greatest webste in th wrold">
   <meta property="og:image" content="http://daxy.lol/media/icons/world.gif">
-    <link rel="icon" href="original-icon.png" type="image/png" id="favicon">
+    <link rel="icon" href=# type="image/png" id="favicon">
     <script> // favicon changer
       const favicon = document.getElementById('favicon');
       const canny = 'media/icons/canny.png';
@@ -99,7 +99,7 @@
     render();
   </script-->
 
-  <audio id="bgSong" src="./media/SONG.mp3" autoplay="" loop=""></audio>
+  <audio id="bgSong" src="./media/songs/SONG.mp3" autoplay="" loop=""></audio>
   <button onclick="toggleBgSong()" id="playButton">play music</button><br>
   <input type="range" min="1" max="100" value="100" placeholder="volume (1-100)" id="songVolumeSlider" style="accent-color: #008080;"/>
 
@@ -245,7 +245,7 @@
     </div>
   </center>
 
-  <script>
+  <script id="misc-functions">
     // jumpscare script (probably temporary)
     function show() {
       const container = document.getElementById("jumpscare-div");
@@ -258,7 +258,7 @@
         //document.body.style.backgroundColor = '#BADA55'
         //document.getElementById('main-text').style.color = '#008080'
       }, 1720);
-    }
+    };
 
     function scream() {
       const sound = document.getElementById('sound');
@@ -268,7 +268,7 @@
         sound.pause();
         sound.currentTime = 0;
       }, 1720)
-    }
+    };
 
     function change() {
       setTimeout(() => { // fuck settimeout 
@@ -278,7 +278,26 @@
         document.getElementById("main-text").textContent = null
         document.getElementById("jumpscare text").style.pointerEvents = 'none'
       }, 250)
-    }
+    };
+
+    function changeSong(file) {
+      if (file === undefined) {
+        throw new Error("file argument undefined or file doesn't exist")
+      } else if (typeof file !== 'string') {
+        throw new Error("file argument needs to be a string")
+      }
+
+      var song = `./media/songs/${file}`
+
+      document.getElementById("bgSong").src = song
+
+      return `changed song to ${file.split('.')[0]}`
+    };
+
+    function songs() { // note: add new songs
+      var songs = ["SONG.mp3", "SONG2.mp3"];
+      return songs.toString()
+    };
   </script>
   
   <button onclick="window.location.href='https://daxy.lol/login';" id="loginButton" style="position: fixed; top: 20px; right: 20px;">admin login</button>
