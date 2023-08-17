@@ -247,6 +247,19 @@
 
   <script id="misc-functions">
     // jumpscare script (probably temporary)
+    function changejumpscare(file, reset) {
+      var jumpscarefile = `./media/jumpscares/${file}`;
+
+      if (reset === true) {
+        document.getElementById("gif").src = jumpscarefile;
+        document.getElementById("gottem").style.display = 'none';
+        document.getElementById("jumpscare text").style.pointerEvents = 'auto';
+        document.getElementById("main-text").textContent = 'there is nothing here... i think?';
+      } else {
+        throw 'invalid second argument noob'
+      }
+    };
+
     function show() {
       const container = document.getElementById("jumpscare-div");
       container.style.display = 'block';
@@ -295,7 +308,7 @@
     };
 
     function songs() { // note: add new songs
-      var songs = ["SONG.mp3", "SONG2.mp3"];
+      var songs = ["SONG.mp3", "SONG2.mp3", "USA.mp3"];
       return songs.toString()
     };
   </script>
