@@ -99,9 +99,10 @@
     render();
   </script-->
 
-  <audio id="bgSong" src="./media/songs/SONG.mp3" autoplay="" loop=""></audio>
   <button onclick="toggleBgSong()" id="playButton">play music</button><br>
+  <audio id="bgSong" src="./media/songs/SONG.mp3" autoplay="" loop=""></audio>
   <input type="range" min="1" max="100" value="100" placeholder="volume (1-100)" id="songVolumeSlider" style="accent-color: #008080;"/>
+  <button onclick="window.location.href='https://daxy.lol/login';" id="loginButton" style="position: fixed; top: 20px; right: 20px;">admin login</button>
 
   <script>
     //song system
@@ -164,28 +165,13 @@
 
 
   <div id="jumpscare text" style="pointer-events: auto;">
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-      <marquee scrollamount="15" id="main-text" style="font-size: 25px; color:#008080; font-family: 'Trebuchet MS', sans-serif; position: fixed; bottom: 0;"; onclick="show(), scream(), change()">there is nothing here... or perhaps there might be                         what are you looking at me for? i'm not interesting man i'm litteraly just a piece of text designed to throw you off... Or am i? To be honest i'm not quite sure but you shouldn't click me because i don't do anything.                                                why are you still on this site? there's still nothing to see here and there's clearly no reason for you to be here... right?</marquee>
+      <marquee scrollamount="15" id="main-text" style="font-size: 25px; color:#008080; font-family: 'Trebuchet MS', sans-serif; position: fixed; bottom: 0;"; onclick="show(), scream(), change()">text script no worky, please enable javascript</marquee>
   </div>
+
+  <div id="experimental-radio" style="pointer-events: none; display: none;"> 
+    <a id="experimental-radio-text" style="font-size: 15px; color:#008080; font-family: 'Trebuchet MS', sans-serif; position: fixed; top: 1%; left: 5.5%">radio script no worky, please enable javascript</a>
+  </div>
+  
 
   <div id="jumpscare-div" style="pointer-events: none; display: none; position: fixed; top: 0; left: 0; width: 100%; height: 105%; z-index: 9999;">
     <img id="gif" style="object-fit: cover; width: 100%; height: 96%; pointer-events: none;" src="./media/jumpscares/jumpscare3.gif" loop="false"/>
@@ -215,6 +201,7 @@
 
     randomSentence();
   </script>
+
   <script id="reset">
     function reset() {
       document.getElementById("gottem").style.display = 'none';
@@ -245,8 +232,8 @@
     </div>
   </center>
 
-  <script id="misc-functions">
-    // jumpscare script (probably temporary)
+  <script id="misc-functions"> //i get bored and write random shit sometimes
+    // probably temporary
     function changejumpscare(file, reset) {
       var jumpscarefile = `./media/jumpscares/${file}`;
 
@@ -311,6 +298,44 @@
       var songs = ["SONG.mp3", "SONG2.mp3", "USA.mp3"];
       return songs.toString()
     };
+
+    function experimentalRadio() { // gta 5 has the best radio stations change my mind
+      /*let showAlert=true
+      if(showAlert===true){
+        window.alert("this is experimental so expect bugs n whatnot\ni also have barely any songs to play so heres some east los fm")
+        showAlert===false
+      }
+      */
+
+      document.getElementById("experimental-radio").style.display = 'block';
+      document.getElementById("bgSong").removeAttribute("loop")
+
+      const gtaSongs = [ // note: add more songs and on-end shuffling
+        { "song": "./media/radio-stations/East-Los-FM/ElCocaino.mp3", "name": "El Cocaino", "station": "East Los FM" },
+        { "song": "./media/radio-stations/East-Los-FM/Estoy.mp3", "name": "Es toy", "station": "East Los FM" },
+        { "song": "./media/radio-stations/East-Los-FM/RadioCapital.mp3", "name": "Radio Captital", "station": "East Los FM" },
+        { "song": "./media/radio-stations/East-Los-FM/Autos,ModaYRockandRoll.mp3", "name": "Autos, Moda Y Rock and Roll", "station": "East Los FM" },
+        { "song": "./media/radio-stations/East-Los-FM/ElTatuado.mp3", "name": "El Tatuado", "station": "East Los FM" },
+        { "song": "./media/radio-stations/East-Los-FM/SeMePerdiólaCadenita.mp3", "name": "Se Me Perdió la Cadenita", "station": "East Los FM" },
+        { "song": "./media/radio-stations/East-Los-FM/She'saTease.mp3", "name": "She's a Tease", "station": "East Los FM" },
+        { "song": "./media/radio-stations/East-Los-FM/Pachuco.mp3", "name": "Pachuco", "station": "East Los FM" },
+        { "song": "./media/radio-stations/East-Los-FM/ElSonidito.mp3", "name": "El Sonidito", "station": "East Los FM" },
+        { "song": "./media/radio-stations/East-Los-FM/Fresco.mp3", "name": "Fresco", "station": "East Los FM" },
+        { "song": "./media/radio-stations/East-Los-FM/TengoElDon.mp3", "name": "Tengo El Don", "station": "East Los FM" },
+        { "song": "./media/radio-stations/East-Los-FM/LaGranja.mp3", "name": "La Granja", "station": "East Los FM" },
+        { "song": "./media/radio-stations/East-Los-FM/ElReyYYo.mp3", "name": "El Rey Y Yo", "station": "East Los FM" }
+      ]
+
+      var randomGtaSongIndex = Math.floor(Math.random() * gtaSongs.length);
+      var randomGtaSong = gtaSongs[randomGtaSongIndex]
+
+      document.getElementById("experimental-radio-text").textContent = `playing ${gtaSongs[randomGtaSongIndex].name} on station ${gtaSongs[randomGtaSongIndex].station}`
+      document.getElementById("bgSong").src = randomGtaSong.song
+      
+      return `song: ${gtaSongs[randomGtaSongIndex].name}, station: ${gtaSongs[randomGtaSongIndex].station}`
+    };
+
+    document.getElementById("bgSong").addEventListener("ended",()=>{experimentalRadio()})
   </script>
   
   <button onclick="window.location.href='https://daxy.lol/login';" id="loginButton" style="position: fixed; top: 20px; right: 20px;">admin login</button>
