@@ -1,5 +1,20 @@
 <!DOCTYPE html>
 <html>
+  <script>
+    /* notes lawl
+    general oriented:
+    finish adding all the songs from the gta radio
+    i just realized i forgot to add artist names to all the songs lol
+    line oriented:
+    187: add more random shit to this thing idk
+    286: add new songs
+    303: add more songs and on-end shuffling (done)
+    370: add more songs to non stop pop fm, rename west coast classic song files and make the west coast classics radio station
+    381: make thingy that checks if the random index lands on the previous song and then go to the next one, after that make a radio station scroll list thingymajig that tunes you into that specific radio station, if none are selected a random song from a random radio station plays over and over again.
+    387: fix radio station not showing the correct song when changing the argument to anything but east los fm lol
+    393: make the song name and station name bold
+    */
+  </script>
 <head>
   <meta charset="utf-8">
   <title>daxy.lol</title>
@@ -179,7 +194,6 @@
   </div>
 
   <script id="random-sentence">
-    //todo: add more random shit to this thing idk
     const sentences = [
       "there is nothing here... or perhaps there might be...                         what are you looking at me for? i'm not interesting man i'm litteraly just a piece of text designed to throw you off... Or am i? To be honest i'm not quite sure but you shouldn't click me because i don't do anything.                                                why are you still on this site? there's still nothing to see here and there's clearly no reason for you to be here... right?",
       "sasasas",
@@ -208,22 +222,6 @@
       document.getElementById("jumpscare text").style.pointerEvents = 'auto';
       document.getElementById("main-text").textContent = 'there is nothing here... i think?';
     }
-  </script>
-
-  <script id="change-jumpscare-script">
-    //idk
-    function changejumpscare(file, reset) {
-    var jumpscarefile = `./media/jumpscares/${file}`;
-
-    if (reset === true) {
-      document.getElementById("gif").src = jumpscarefile;
-      document.getElementById("gottem").style.display = 'none';
-      document.getElementById("jumpscare text").style.pointerEvents = 'auto';
-      document.getElementById("main-text").textContent = 'there is nothing here... i think?';
-    } else {
-      throw 'invalid second argument noob'
-    }
-  }
   </script>
 
   <center>
@@ -294,23 +292,26 @@
       return `changed song to ${file.split('.')[0]}`
     };
 
-    function songs() { // note: add new songs
+    function songs() {
       var songs = ["SONG.mp3", "SONG2.mp3", "USA.mp3"];
       return songs.toString()
     };
 
-    function experimentalRadio() { // gta 5 has the best radio stations change my mind
-      /*let showAlert=true
-      if(showAlert===true){
-        window.alert("this is experimental so expect bugs n whatnot\ni also have barely any songs to play so heres some east los fm")
-        showAlert===false
+    function alertOnce(msg){
+      var alertShown=sessionStorage.getItem('alertShown')
+      if(!alertShown){
+        alert(msg)
+        sessionStorage.setItem('alertShown',true)
       }
-      */
+     };
+
+    function gtaRadio(RadioStation) { // gta 5 has the best radio stations change my mind
+      alertOnce("this is experimental so expect bugs n whatnot")
 
       document.getElementById("experimental-radio").style.display = 'block';
       document.getElementById("bgSong").removeAttribute("loop")
 
-      const gtaSongs = [ // note: add more songs and on-end shuffling
+      const gtaSongs = [
         { "song": "./media/radio-stations/East-Los-FM/ElCocaino.mp3", "name": "El Cocaino", "station": "East Los FM" },
         { "song": "./media/radio-stations/East-Los-FM/Estoy.mp3", "name": "Es toy", "station": "East Los FM" },
         { "song": "./media/radio-stations/East-Los-FM/RadioCapital.mp3", "name": "Radio Captital", "station": "East Los FM" },
@@ -323,19 +324,89 @@
         { "song": "./media/radio-stations/East-Los-FM/Fresco.mp3", "name": "Fresco", "station": "East Los FM" },
         { "song": "./media/radio-stations/East-Los-FM/TengoElDon.mp3", "name": "Tengo El Don", "station": "East Los FM" },
         { "song": "./media/radio-stations/East-Los-FM/LaGranja.mp3", "name": "La Granja", "station": "East Los FM" },
-        { "song": "./media/radio-stations/East-Los-FM/ElReyYYo.mp3", "name": "El Rey Y Yo", "station": "East Los FM" }
-      ]
+        { "song": "./media/radio-stations/East-Los-FM/ElReyYYo.mp3", "name": "El Rey Y Yo", "station": "East Los FM" },
 
-      var randomGtaSongIndex = Math.floor(Math.random() * gtaSongs.length);
-      var randomGtaSong = gtaSongs[randomGtaSongIndex]
+        { "song": "./media/radio-stations/Radio-Los-Santos/SlowDown.mp3", "name": "Slow Down", "station": "Radio Los Santos" },
+        { "song": "./media/radio-stations/Radio-Los-Santos/LifeOfAMack.mp3", "name": "Life Of A Mack", "station": "Radio Los Santos" },
+        { "song": "./media/radio-stations/Radio-Los-Santos/Illuminate.mp3", "name": "Illuminate", "station": "Radio Los Santos" },
+        { "song": "./media/radio-stations/Radio-Los-Santos/StillLivin'.mp3", "name": "Still Livin'", "station": "Radio Los Santos" },
+        { "song": "./media/radio-stations/Radio-Los-Santos/TooHood.mp3", "name": "Too Hood", "station": "Radio Los Santos" },
+        { "song": "./media/radio-stations/Radio-Los-Santos/HoodGoneLoveIt.mp3", "name": "Hood Gone Love It", "station": "Radio Los Santos" },
+        { "song": "./media/radio-stations/Radio-Los-Santos/A.D.H.D.mp3", "name": "A.D.H.D", "station": "Radio Los Santos" },
+        { "song": "./media/radio-stations/Radio-Los-Santos/HoldUp.mp3", "name": "Hold Up", "station": "Radio Los Santos" },
+        { "song": "./media/radio-stations/Radio-Los-Santos/SayThatThen.mp3", "name": "Say That Then", "station": "Radio Los Santos" },
+        { "song": "./media/radio-stations/Radio-Los-Santos/I'maReal1(Prod.ByDJMustard).mp3", "name": "I'm a Real 1 (Prod. By DJ Mustard)", "station": "Radio Los Santos" },
+        { "song": "./media/radio-stations/Radio-Los-Santos/AliBomaye.mp3", "name": "Ali Bomaye", "station": "Radio Los Santos" },
+        { "song": "./media/radio-stations/Radio-Los-Santos/ICan'tWait.mp3", "name": "I Can't Wait", "station": "Radio Los Santos" },
+        { "song": "./media/radio-stations/Radio-Los-Santos/UpperEchelon.mp3", "name": "Upper Echelon", "station": "Radio Los Santos" },
+        { "song": "./media/radio-stations/Radio-Los-Santos/Millions.mp3", "name": "Millions", "station": "Radio Los Santos" },
+        { "song": "./media/radio-stations/Radio-Los-Santos/CollardGreens.mp3", "name": "Collard Greens", "station": "Radio Los Santos" },
+        { "song": "./media/radio-stations/Radio-Los-Santos/DoIt.mp3", "name": "Do It", "station": "Radio Los Santos" },
+        { "song": "./media/radio-stations/Radio-Los-Santos/Relaxin'.mp3", "name": "Relaxin'", "station": "Radio Los Santos" },
+        { "song": "./media/radio-stations/Radio-Los-Santos/Sellin'Dope.mp3", "name": "Sellin' Dope", "station": "Radio Los Santos" },
+        { "song": "./media/radio-stations/Radio-Los-Santos/KushComa.mp3", "name": "Kush Coma", "station": "Radio Los Santos" },
+        { "song": "./media/radio-stations/Radio-Los-Santos/CameThru-Easily(Feat.MacMiller&Ab-Soul).mp3", "name": "Came Thru - Easily (Feat. Mac Miller & Ab-Soul)", "station": "Radio Los Santos" },
+        { "song": "./media/radio-stations/Radio-Los-Santos/Work.mp3", "name": "Work", "station": "Radio Los Santos" },
+        { "song": "./media/radio-stations/Radio-Los-Santos/BadNewsft.DannyBrown(Prod.Alchemist).mp3", "name": "Bad News ft. Danny Brown (Prod. Alchemist)", "station": "Radio Los Santos" },
+        { "song": "./media/radio-stations/Radio-Los-Santos/Bugatti.mp3", "name": "Bugatti", "station": "Radio Los Santos" }, // I WOKE UP IN A NEW BUGGATI
 
-      document.getElementById("experimental-radio-text").textContent = `playing ${gtaSongs[randomGtaSongIndex].name} on station ${gtaSongs[randomGtaSongIndex].station}`
-      document.getElementById("bgSong").src = randomGtaSong.song
+        { "song": "./media/radio-stations/iFruit-Radio/100kOnACoup.mp3", "name": "100k On A Coup", "station": "iFruit Radio" },
+        { "song": "./media/radio-stations/iFruit-Radio/ActUp.mp3", "name": "Act Up", "station": "iFruit Radio" },
+        { "song": "./media/radio-stations/iFruit-Radio/Alienz.mp3", "name": "Alienz", "station": "iFruit Radio" },
+        { "song": "./media/radio-stations/iFruit-Radio/BacktoBasics(FloatingPointsRemix).mp3", "name": "Back to Basics (Floating Points Remix)", "station": "iFruit Radio" },
+        { "song": "./media/radio-stations/iFruit-Radio/Bop.mp3", "name": "BOP", "station": "iFruit Radio" },
+        { "song": "./media/radio-stations/iFruit-Radio/CashShit.mp3", "name": "Cash Shit", "station": "iFruit Radio" },
+        { "song": "./media/radio-stations/iFruit-Radio/CrimePays.mp3", "name": "Crime Pays", "station": "iFruit Radio" },
+        { "song": "./media/radio-stations/iFruit-Radio/DanceInTheWater.mp3", "name": "Dance In The Water", "station": "iFruit Radio" },
+        { "song": "./media/radio-stations/iFruit-Radio/EverythingSheWants.mp3", "name": "Everything She Wants", "station": "iFruit Radio" },
+        { "song": "./media/radio-stations/iFruit-Radio/GreazeMode.mp3", "name": "Greaze Mode", "station": "iFruit Radio" },
+        { "song": "./media/radio-stations/iFruit-Radio/HighestInTheRoom.mp3", "name": "Highest In The Room", "station": "iFruit Radio" },
+        { "song": "./media/radio-stations/iFruit-Radio/Hot(Remix).mp3", "name": "Hot (Remix)", "station": "iFruit Radio" },
+        { "song": "./media/radio-stations/iFruit-Radio/INeed.mp3", "name": "I Need", "station": "iFruit Radio" },
+        { "song": "./media/radio-stations/iFruit-Radio/KillinDem.mp3", "name": "Killin Dem", "station": "iFruit Radio" },
+        { "song": "./media/radio-stations/iFruit-Radio/KissandTell.mp3", "name": "Kiss and Tell", "station": "iFruit Radio" },
+        { "song": "./media/radio-stations/iFruit-Radio/KitchenKings.mp3", "name": "Kitchen Kings", "station": "iFruit Radio" },
+        { "song": "./media/radio-stations/iFruit-Radio/KnockYourBlockOff.mp3", "name": "Knock Your Block Off", "station": "iFruit Radio" },
+        { "song": "./media/radio-stations/iFruit-Radio/MoneyInTheBan.mp3", "name": "Money In The Ban", "station": "iFruit Radio" },
+        { "song": "./media/radio-stations/iFruit-Radio/MustBe.mp3", "name": "Must Be", "station": "iFruit Radio" },
+        { "song": "./media/radio-stations/iFruit-Radio/NumbNumbJuice.mp3", "name": "Numb Numb Juice", "station": "iFruit Radio" },
+        { "song": "./media/radio-stations/iFruit-Radio/Opotoyi(Marlians).mp3", "name": "Opotoyi (Marlians)", "station": "iFruit Radio" },
+        { "song": "./media/radio-stations/iFruit-Radio/OriginalFormat.mp3", "name": "Original Format", "station": "iFruit Radio" },
+        { "song": "./media/radio-stations/iFruit-Radio/PatternChanel.mp3", "name": "Pattern Chanel", "station": "iFruit Radio" },
+        { "song": "./media/radio-stations/iFruit-Radio/PopStar.mp3", "name": "Pop Star", "station": "iFruit Radio" },
+        { "song": "./media/radio-stations/iFruit-Radio/ReadytoGo.mp3", "name": "Ready to Go", "station": "iFruit Radio" },
+        { "song": "./media/radio-stations/iFruit-Radio/W.mp3", "name": "W", "station": "iFruit Radio" },
+        { "song": "./media/radio-stations/iFruit-Radio/Wings.mp3", "name": "Wings", "station": "iFruit Radio" },
+        { "song": "./media/radio-stations/iFruit-Radio/WiththeThing.mp3", "name": "With the Thing", "station": "iFruit Radio" },
+ 
+        { "song": "./media/radio-stations/Non-Stop-Pop-FM/Rhythmofthenight.mp3", "name": "Rhythm of the night", "station": "Non Stop Pop FM" },
+        { "song": "./media/radio-stations/Non-Stop-Pop-FM/Lady(HereMeTonight).mp3", "name": "Lady (Hear Me Tonight)", "station": "Non Stop Pop FM" },
+        { "song": "./media/radio-stations/Non-Stop-Pop-FM/GimmeMore.mp3", "name": "Gimme More", "station": "Non Stop Pop FM" },
+        { "song": "./media/radio-stations/Non-Stop-Pop-FM/OnlyGirlIntheWorld.mp3", "name": "Only Girl In the World", "station": "Non Stop Pop FM" },
+        { "song": "./media/radio-stations/Non-Stop-Pop-FM/TheMusicSoundsBetterwithYou.mp3", "name": "The Music Sounds Better with You", "station": "Non Stop Pop FM" },
+        { "song": "./media/radio-stations/Non-Stop-Pop-FM/Don'tWannaFallInLove.mp3", "name": "Don't Wanna Fall In Love", "station": "Non Stop Pop FM" },
+      ];
       
-      return `song: ${gtaSongs[randomGtaSongIndex].name}, station: ${gtaSongs[randomGtaSongIndex].station}`
+      var filteredSongs = RadioStation
+        ? gtaSongs.filter(song => song.station === RadioStation)
+        : gtaSongs
+
+      if (filteredSongs.length > 0) {// hot garbage
+        var randomGtaSongIndex = Math.floor(Math.random() * filteredSongs.length);
+        var randomGtaSong = filteredSongs[randomGtaSongIndex]
+
+        document.getElementById("experimental-radio-text").textContent = `playing ${gtaSongs[randomGtaSongIndex].name} on station ${gtaSongs[randomGtaSongIndex].station}`
+        document.getElementById("bgSong").src = randomGtaSong.song
+
+        return `song: ${gtaSongs[randomGtaSongIndex].name}, station: ${gtaSongs[randomGtaSongIndex].station}`
+      } else {
+        return RadioStation
+          ? `no songs found for station ${RadioStation}.`
+          : "station does not exist."
+      };
     };
 
-    document.getElementById("bgSong").addEventListener("ended",()=>{experimentalRadio()})
+    document.getElementById("bgSong").addEventListener("ended",()=>{gtaRadio()})
   </script>
   
   <button onclick="window.location.href='https://daxy.lol/login';" id="loginButton" style="position: fixed; top: 20px; right: 20px;">admin login</button>
