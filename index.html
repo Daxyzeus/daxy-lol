@@ -114,7 +114,7 @@
     render();
   </script-->
 
-  <button onclick="toggleBgSong()" id="playButton">play music</button><br>
+  <button onclick="toggleBgSong()" id="playButton">play music⏵</button><br>
   <audio id="bgSong" src="./media/songs/SONG.mp3" autoplay="" loop=""></audio>
   <input type="range" min="1" max="100" value="100" placeholder="volume (1-100)" id="songVolumeSlider" style="accent-color: #008080;"/>
   <button onclick="window.location.href='https://daxy.lol/login';" id="loginButton" style="position: fixed; top: 20px; right: 20px;">admin login</button>
@@ -131,18 +131,18 @@
 
     //pc
     function toggleBgSong() {
-        if (document.getElementById('playButton').innerHTML == 'play music') {
+        if (document.getElementById('playButton').innerHTML == 'play music⏵') {
             document.getElementById('bgSong').play()
-            document.getElementById('playButton').innerHTML = 'stop music'
+            document.getElementById('playButton').innerHTML = 'stop music⏸'
         } else {
             document.getElementById('bgSong').pause()
-            document.getElementById('playButton').innerHTML = 'play music'
+            document.getElementById('playButton').innerHTML = 'play music⏵'
         }
     }
 
     window.addEventListener('load', function() { //on page load, determine if the song is playing, and set the volume of it
         document.getElementById('bgSong').addEventListener('play', function() {
-            document.getElementById('playButton').innerHTML = 'stop music'
+            document.getElementById('playButton').innerHTML = 'stop music⏸'
         }, false)
 
         document.getElementById('songVolumeSlider').addEventListener('change', function() {
@@ -164,10 +164,10 @@
                 this.play();
             }, false);
 
-            if (document.getElementById('playButton').innerHTML == 'play music') {
+            if (document.getElementById('playButton').innerHTML == 'play music⏵') {
                 song.play();
-                document.getElementById('playButton').innerHTML = 'stop music'
-            } else if (document.getElementById('playButton').innerHTML == 'stop music') {
+                document.getElementById('playButton').innerHTML = 'stop music⏸'
+            } else if (document.getElementById('playButton').innerHTML == 'stop music⏸') {
                 location.reload(false)
             }
         }
@@ -184,7 +184,7 @@
   </div>
 
   <div id="experimental-radio" style="pointer-events: none; display: none;"> 
-    <a id="experimental-radio-text" style="font-size: 15px; color:#008080; font-family: 'Trebuchet MS', sans-serif; position: fixed; top: 1%; left: 5.5%">radio script no worky, please enable javascript</a>
+    <span id="experimental-radio-text" style="margin-left: 6px; font-size: 15px; color:#008080; font-family: 'Trebuchet MS', sans-serif; position: fixed; top: 1.3%; left: 5.8%">radio script no worky, please enable javascript</span>
   </div>
   
 
@@ -293,7 +293,7 @@
     };
 
     function songs() {
-      var songs = ["SONG.mp3", "SONG2.mp3", "USA.mp3"];
+      var songs = ["SONG.mp3", "SONG2.mp3", "USA.mp3"]; //unfinished
       return songs.toString()
     };
 
@@ -395,10 +395,10 @@
         var randomGtaSongIndex = Math.floor(Math.random() * filteredSongs.length);
         var randomGtaSong = filteredSongs[randomGtaSongIndex]
 
-        document.getElementById("experimental-radio-text").textContent = `playing ${gtaSongs[randomGtaSongIndex].name} on station ${gtaSongs[randomGtaSongIndex].station}`
+        document.getElementById("experimental-radio-text").innerHTML = `playing <b>${filteredSongs[randomGtaSongIndex].name}</b> on station <b>${filteredSongs[randomGtaSongIndex].station}</b>`
         document.getElementById("bgSong").src = randomGtaSong.song
 
-        return `song: ${gtaSongs[randomGtaSongIndex].name}, station: ${gtaSongs[randomGtaSongIndex].station}`
+        return `song: ${filteredSongs[randomGtaSongIndex].name}, station: ${filteredSongs[randomGtaSongIndex].station}`
       } else {
         return RadioStation
           ? `no songs found for station ${RadioStation}.`
