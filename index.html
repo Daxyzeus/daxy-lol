@@ -12,7 +12,7 @@
     370: add more songs to non stop pop fm, rename west coast classic song files and make the west coast classics radio station
     381: make thingy that checks if the random index lands on the previous song and then go to the next one, after that make a radio station scroll list thingymajig that tunes you into that specific radio station, if none are selected a random song from a random radio station plays over and over again.
     387: fix radio station not showing the correct song when changing the argument to anything but east los fm lol
-    393: make the song name and station name bold
+    393: make the song name and station name bold (done)
     */
   </script>
 <head>
@@ -24,20 +24,28 @@
   <meta property="og:image" content="http://daxy.lol/media/icons/world.gif">
     <link rel="icon" href=# type="image/png" id="favicon">
     <script> // favicon changer
+      function randomInt(max){return Math.floor(Math.random()*max+1)};
+
       const favicon = document.getElementById('favicon');
+
       const canny = 'media/icons/canny.png';
       const uncanny = 'media/icons/uncanny.png';
+      const raisin = 'media/icons/raisin.png';
 
       let isFirst = true;
   
       function changeFavicon() {
-        if (isFirst) {
+        var int = randomInt(100)
+
+        if (randomInt === 1) {
+          favicon.href = raisin;
+        } else if (isFirst) {
           favicon.href = uncanny;
         } else {
           favicon.href = canny;
         }
         isFirst = !isFirst;
-      }
+      };
 
       setInterval(changeFavicon, 2500);;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; // why does js let you get away with this
     </script>
@@ -184,7 +192,7 @@
   </div>
 
   <div id="experimental-radio" style="pointer-events: none; display: none;"> 
-    <span id="experimental-radio-text" style="margin-left: 6px; font-size: 15px; color:#008080; font-family: 'Trebuchet MS', sans-serif; position: fixed; top: 1.3%; left: 5.8%">radio script no worky, please enable javascript</span>
+    <span id="experimental-radio-text" style="margin-left: 6px; font-size: 15px; color:#008080; font-family: 'Trebuchet MS', sans-serif; position: fixed; top: 1.2%; left: 13.35%">radio script no worky, please enable javascript</span>
   </div>
   
 
@@ -306,10 +314,11 @@
      };
 
     function gtaRadio(RadioStation) { // gta 5 has the best radio stations change my mind
-      alertOnce("this is experimental so expect bugs n whatnot")
+      alertOnce("this is experimental so expect bugs n whatnot");
 
       document.getElementById("experimental-radio").style.display = 'block';
-      document.getElementById("bgSong").removeAttribute("loop")
+      document.getElementById("stationSelectorDiv").style.display = 'block';
+      document.getElementById("bgSong").removeAttribute("loop");
 
       const gtaSongs = [
         { "song": "./media/radio-stations/East-Los-FM/ElCocaino.mp3", "name": "El Cocaino", "station": "East Los FM" },
@@ -390,7 +399,7 @@
       var filteredSongs = RadioStation
         ? gtaSongs.filter(song => song.station === RadioStation)
         : gtaSongs
-
+        
       if (filteredSongs.length > 0) {// hot garbage
         var randomGtaSongIndex = Math.floor(Math.random() * filteredSongs.length);
         var randomGtaSong = filteredSongs[randomGtaSongIndex]
@@ -404,11 +413,39 @@
           ? `no songs found for station ${RadioStation}.`
           : "station does not exist."
       };
-    };
 
-    document.getElementById("bgSong").addEventListener("ended",()=>{gtaRadio()})
+      document.getElementById("bgSong").addEventListener("ended", function() {
+        gtaRadio(RadioStation)
+      })
+    };
   </script>
-  
-  <button onclick="window.location.href='https://daxy.lol/login';" id="loginButton" style="position: fixed; top: 20px; right: 20px;">admin login</button>
+
+  <div id="stationSelectorDiv" style="display: none; position: fixed; top: 1.1%; left: 6%">
+    <select name="stationSelector" id="stationSelector" style="font-family: Arial, Helvetica, sans-serif; color:#008080; background-color: #bada55; border-width: 2px; border-color: buttonborder; border-image: initial; border-style: outset">
+      <option id="0" selected="default">Random Station</option>
+      <option id="1" value="east los fm">East Los FM</option>
+      <option id="2" value="radio los santos">Radio Los Santos</option>
+      <option id="3" value="ifruit radio">iFruit Radio</option>
+      <option id="4" value="non stop pop fm">Non Stop Pop FM</option>
+    </select>
+
+    <script>
+      var stationSelector = document.getElementById("stationSelector")
+
+      stationSelector.addEventListener("change", function() {
+        if (document.getElementById(0).selected === true) {
+          gtaRadio()
+        } else if (document.getElementById(1).selected === true) {
+          gtaRadio("East Los FM")
+        } else if (document.getElementById(2).selected === true) {
+          gtaRadio("Radio Los Santos")
+        } else if (document.getElementById(3).selected === true) {
+          gtaRadio("iFruit Radio")
+        } else if (document.getElementById(4).selected === true) {
+          gtaRadio("Non Stop Pop FM")
+        };
+      });
+    </script>
+  </div>
 </body>
 </html>

@@ -3,3 +3,14 @@ button, input[type="submit"] {
     color: #008080;
 };
 
+#myselect {
+    background-color: #bada55;
+    color: #008080;
+    border: none;
+}
+
+#myselect option {
+    background-color: #bada55;
+    color: #008080;
+}
+
